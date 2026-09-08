@@ -23,11 +23,11 @@ Every step, from raw data to the final results, is documented in a single self-c
 1. **Data preparation** — loading, data quality checks, target variable definition
 2. **Descriptive analysis** — distributions, categorical breakdowns, correlations
 3. **Statistical tests** — t-tests and χ² tests of association with the target variable
-4. **Data preprocessing for modeling** — cleaning, encoding, scaling, train/test split, feature selection
-5. **Model development and evaluation methodology** — cross-validation strategy, evaluation metrics, hyperparameter tuning, nested cross-validation
+4. **Data preprocessing for modeling** — cleaning, encoding, train/test split; scaling and feature selection are built into the modeling pipeline (fitted inside each cross-validation fold), not applied once beforehand
+5. **Model development and evaluation methodology** — the preprocessing pipeline (column-wise scaling → `SelectKBest` feature selection → model), cross-validation strategy, evaluation metrics, hyperparameter tuning (including the number of selected features `k`), nested cross-validation
 6. **Results and comparative model analysis** — five classifiers (Logistic Regression, KNN, SVM, Random Forest, XGBoost) trained and compared
 7. **Model interpretability** — odds ratios, feature importance, SHAP analysis
-8. **Fairness and robustness analysis** — subgroup performance, bias checks, sensitivity to removing top predictors
+8. **Fairness and robustness analysis** — subgroup performance (compared against each subgroup's base rate), bias checks, sensitivity to removing the single strongest predictor and the whole block of retrospective "reasons for enrolment" questions
 
 A guiding principle throughout preprocessing and modeling: a feature is only kept if it represents a genuine factor of STEM orientation rather than an administrative/institutional artifact of the sample (e.g. the specific school a student attends is excluded for this reason, even though it correlates with the target).
 
@@ -41,7 +41,7 @@ pip install pandas numpy matplotlib seaborn scipy scikit-learn xgboost shap open
 
 ## Running
 
-Open `stem_factors.ipynb` and run all cells **top to bottom** — later sections reuse variables and trained models defined earlier (e.g. `X_train_selected`, `skf`, `rf_best`), so cells must be executed in order for the notebook to run without errors.
+Open `stem_factors.ipynb` and run all cells **top to bottom** — later sections reuse variables, helpers, and trained models defined earlier (e.g. `X_train`, `napravi_pipeline`, `skf`, `rf_best`), so cells must be executed in order for the notebook to run without errors.
 
 ## Data
 
