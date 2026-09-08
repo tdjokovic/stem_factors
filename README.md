@@ -15,7 +15,7 @@ Every step, from raw data to the final results, is documented in a single self-c
 | File                                 | Description                  |
 | ------------------------------------ | ---------------------------- |
 | `stem_factors.ipynb`                 | Main analysis notebook       |
-| `STEM.xlsx`                          | Raw survey data (input only) |
+| `СТЕМ.xlsx`                          | Raw survey data (input only) |
 | `Diplomski rad - dokumentacija.docx` | Thesis document              |
 
 ## Notebook contents
@@ -45,6 +45,6 @@ Open `stem_factors.ipynb` and run all cells **top to bottom** — later sections
 
 ## Data
 
-`STEM.xlsx` contains anonymized survey responses from students at four Serbian gymnasiums, covering academic performance, subject interest/difficulty/usefulness ratings, learning habits, parental involvement, and socio-demographic background. The notebook derives a binary target variable (`STEM`) from each student's reported track/major.
+`СТЕМ.xlsx` contains anonymized survey responses from students at four Serbian gymnasiums, covering academic performance, subject interest/difficulty/usefulness ratings, learning habits, parental involvement, and socio-demographic background. The notebook derives a binary target variable (`СТЕМ`) from each student's reported track/major.
 
-The notebook can also be run on a different dataset, as long as it follows the same column structure and naming as `STEM.xlsx` (question wording, Likert-scale format, and the `Смер:` column used to derive the target variable) — otherwise the column references throughout the notebook would need to be adjusted accordingly.
+The notebook can also be run on a different dataset, as long as it follows the same column structure and naming as `СТЕМ.xlsx` (question wording, Likert-scale format, and the `Смер:` column used to derive the target variable) — otherwise the column references throughout the notebook would need to be adjusted accordingly.
